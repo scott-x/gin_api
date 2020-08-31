@@ -45,6 +45,7 @@ func main() {
 		"middleware/translation.go",
 		"router/route.go",
 		"go.mod",
+		"main.go",
 		"conf/dev/base.toml",
 	}
 	m := make(map[string]string)
@@ -52,9 +53,9 @@ func main() {
 	m["gin_scaffold"] = current
 	for _, v := range filesShouldModify {
 		err = fs.ReadAndReplace("./"+v, m)
-		if err!=nil{
+		if err != nil {
 			fmt.Print(err)
-			cmd.Warning("replace "+v +" error")
+			cmd.Warning("replace " + v + " error")
 		}
 	}
 	cmd.Info("Congraduations, gin_scaffold structure was build successfully....")
